@@ -11,9 +11,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.akcreations.jpademo.entity.Course;
+import com.akcreations.jpademo.entity.FullTimeEmployee;
+import com.akcreations.jpademo.entity.PartTimeEmployee;
 import com.akcreations.jpademo.entity.Review;
 import com.akcreations.jpademo.entity.Student;
 import com.akcreations.jpademo.repository.CourseRepository;
+import com.akcreations.jpademo.repository.EmployeeRepository;
 import com.akcreations.jpademo.repository.StudentRepository;
 
 @SpringBootApplication
@@ -25,6 +28,9 @@ public class JpaDemoApplication implements CommandLineRunner {
      
      @Autowired
      StudentRepository studentRepo;
+     
+     @Autowired
+     EmployeeRepository empRepo;
      
      public static void main(String[] args) {
 		SpringApplication.run(JpaDemoApplication.class, args);
@@ -41,8 +47,10 @@ public class JpaDemoApplication implements CommandLineRunner {
 		 * 
 		 * courseRepo.addReviewsForCourse(1003, reviews);
 		 */
+		empRepo.save(new FullTimeEmployee("Josh", 1000000L));
+		empRepo.save(new PartTimeEmployee("Anantha", 100L));
 		
-		studentRepo.insertStudentAndCourse(new Student("Arun"), new Course("Dockerisation"));
+		logger.info("List of All employees {}",empRepo.findall());
 	/*	studentRepo.saveStudentWithPassport();
 		
 		logger.info("find 1001: {}" ,repo.findById(1001));

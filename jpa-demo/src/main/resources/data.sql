@@ -21,5 +21,5 @@ insert into review (id,rating,description,course_course_id) values(4003,'5','Sup
 insert into course_student (student_id,course_id) values(2001,1001);
 insert into course_student (student_id,course_id) values(2002,1001);
 insert into course_student (student_id,course_id) values(2001,1002);
-insert into course_student (student_id,course_id) values(2003,1003);
+insert into course_student (student_id,course_id) values(2003,1001);
 
